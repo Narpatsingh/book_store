@@ -28,6 +28,8 @@ Route::get('admin/login', [App\Http\Controllers\Auth\LoginController::class, 'sh
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('frontend');
 
+Route::get('/book_detail/{book}', [App\Http\Controllers\HomeController::class, 'book_detail'])->name('book_detail');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Profile Routes

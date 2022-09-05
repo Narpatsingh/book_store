@@ -35,7 +35,7 @@
                             <tr>
                                 <th width="20%">Title</th>
                                 <th width="20%">Author</th>
-                                <th width="20%">isbn</th>
+                                <th width="20%">ISBN</th>
                                 <th width="20%">Published Date</th>
                                 <th width="10%">Action</th>
                             </tr>

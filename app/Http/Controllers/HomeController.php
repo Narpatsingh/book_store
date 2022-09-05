@@ -30,18 +30,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        echo '<pre><br>';
-        print_r('here');echo '<br>';exit;
         $data = [];
         $data['total_book'] = Book::count();
         $data['total_author'] = Author::count();
         return view('home',['data'=>$data]);
     }
 
-    public function home()
+    public function home(Request $request)
     {
-        $data = Book::with('author')->paginate(10);
+        if(empty($request->search)){
+            $data = Book::with('author')->paginate(10);
+        }else{
+            $search = $request->search;
+            $data = Book::with('author')
+                ->where('title', 'like', '%'.strtolower($search).'%')
+                ->orWhere('description', 'like', '%'.strtolower($search).'%')
+                ->orWhere('isbn', 'like', '%'.strtolower($search).'%')
+                // ->toSql();
+                ->paginate(10);
+        }
         return view('home.books',['books'=>$data ]);
+    }
+
+    public function book_detail(Book $book)
+    {
+        return view('home.book_detail',['book'=>$book ]);
     }
 
     /**

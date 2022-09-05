@@ -103,6 +103,11 @@ breadcrumbs-1 .c-page-breadcrumbs > li > a {
     content: " ";
     display: table;
 }
-       
+.pagination {
+    justify-content: center!important;
+}
+.card{
+    border: none !important;
+}
 </style>
 
